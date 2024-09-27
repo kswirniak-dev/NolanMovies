@@ -17,4 +17,5 @@ movies = [{'title': 'Tarantella', 'year': 1989},
           {'title': 'Tenet', 'year': 2020},
           {'title': 'Oppenheimer', 'year': 2023}]
 
-print(choice(movies))
+if __name__ == "__main__":
+    print(choice(movies))
