@@ -8,6 +8,7 @@ headers = {
     "x-rapidapi-host": "moviesdatabase.p.rapidapi.com"
 }
 
-for title in movies:
-    response = requests.get(url + title, headers=headers)
+for film in movies:
+    querystring = {"exact": "true", "year": str(film['year']), "titleType": "movie"}
+    response = requests.get(url + film['title'], headers=headers, params=querystring)
     print(response.json())
