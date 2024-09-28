@@ -1,3 +1,5 @@
+from random import choice
+
 import requests
 from nolan_movies import movies
 
@@ -8,7 +10,7 @@ headers = {
     "x-rapidapi-host": "moviesdatabase.p.rapidapi.com"
 }
 
-for film in movies:
-    querystring = {"exact": "true", "year": str(film['year']), "titleType": "movie"}
-    response = requests.get(url + film['title'], headers=headers, params=querystring)
-    print(response.json())
+film = choice(movies)
+querystring = {"exact": "true", "year": str(film['year']), "titleType": "movie"}
+response = requests.get(url + film['title'], headers=headers, params=querystring)
+print(response.json())
