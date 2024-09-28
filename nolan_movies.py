@@ -1,9 +1,9 @@
 from random import choice
 
-movies = [{'title': 'Tarantella', 'year': 1989},
-          {'title': 'Larceny', 'year': 1995},
+movies = [{'title': 'Tarantella', 'year': 1990},
+          {'title': 'Larceny', 'year': 1996},
           {'title': 'Doodlebug', 'year': 1997},
-          {'title': 'Following', 'year': 1998},
+          {'title': 'Following', 'year': 1999},
           {'title': 'Memento', 'year': 2000},
           {'title': 'Insomnia', 'year': 2002},
           {'title': 'Batman Begins', 'year': 2005},
