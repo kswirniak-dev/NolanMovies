@@ -1,7 +1,7 @@
 from random import choice
-
-import requests
 from nolan_movies import movies
+import requests
+
 
 url = "https://moviesdatabase.p.rapidapi.com/titles/search/title/"
 
