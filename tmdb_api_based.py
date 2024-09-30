@@ -10,7 +10,7 @@ headers = {
 }
 
 film = choice(movies)
-querystring = {"query": film["title"], "include_adult": "false", "year": str(film['year'])}
+querystring = {"query": film["title"], "include_adult": "false", "year": str(film["year"])}
 response = requests.get(url, headers=headers, params=querystring)
 for result in response.json()["results"]:
     if result["original_title"] == film["title"] and result["release_date"][:4] == str(film["year"]):
