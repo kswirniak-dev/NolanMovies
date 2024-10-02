@@ -20,7 +20,3 @@ def find_all_nolan_movie_ids():
                 movies_ids.append(result["id"])
     return movies_ids
 
-
-nolan_movies_ids = find_all_nolan_movie_ids()
-print(nolan_movies_ids)
-print(len(nolan_movies_ids))
