@@ -14,9 +14,9 @@ def find_all_nolan_movie_ids():
     movies_ids = []
     for film in movies:
         response = get_search_result_by_title_and_year(film)
-        for result in response.json()["results"]:
-            if result["original_title"] == film["title"] and result["release_date"][:4] == str(film["year"]):
-                movies_ids.append(result["id"])
+        movie_id = get_single_movie_from_search_result(response, film)
+        if movie_id is not None:
+            movies_ids.append(movie_id)
     return movies_ids
 
 
@@ -25,5 +25,8 @@ def get_search_result_by_title_and_year(film):
     return requests.get(url, headers=headers, params=querystring)
 
 
-def get_single_movie_from_search_result(result, film):
-    pass
+def get_single_movie_from_search_result(search_result, film):
+    for result in search_result.json()["results"]:
+        if result["original_title"] == film["title"] and result["release_date"][:4] == str(film["year"]):
+            return result["id"]
+
