@@ -13,8 +13,7 @@ headers = {
 def find_all_nolan_movie_ids():
     movies_ids = []
     for film in movies:
-        querystring = {"query": film["title"], "include_adult": "false", "year": str(film["year"])}
-        response = requests.get(url, headers=headers, params=querystring)
+        response = get_search_result_by_title_and_year(film)
         for result in response.json()["results"]:
             if result["original_title"] == film["title"] and result["release_date"][:4] == str(film["year"]):
                 movies_ids.append(result["id"])
@@ -22,7 +21,8 @@ def find_all_nolan_movie_ids():
 
 
 def get_search_result_by_title_and_year(film):
-    pass
+    querystring = {"query": film["title"], "include_adult": "false", "year": str(film["year"])}
+    return requests.get(url, headers=headers, params=querystring)
 
 
 def get_single_movie_from_search_result(result, film):
