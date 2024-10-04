@@ -20,3 +20,10 @@ def find_all_nolan_movie_ids():
                 movies_ids.append(result["id"])
     return movies_ids
 
+
+def get_search_result_by_title_and_year(title, year):
+    pass
+
+
+def get_single_movie_from_search_result(result, title, year):
+    pass
