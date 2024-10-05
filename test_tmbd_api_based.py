@@ -28,7 +28,6 @@ class TestTmdbApiBased(unittest.TestCase):
                                'total_results': 1}
         setup_film = {"title": "Memento", "year": 2000}
         expected = 77
-
         result = tmdb_api_based.get_single_movie_from_search_result(setup_search_result, setup_film)
 
         self.assertIsNotNone(result)
@@ -50,11 +49,16 @@ class TestTmdbApiBased(unittest.TestCase):
                                'total_results': 1}
         setup_film = {"title": "Insomnia", "year": 2002}
         expected = None
-
         result = tmdb_api_based.get_single_movie_from_search_result(setup_search_result, setup_film)
 
         self.assertIsNone(result)
         self.assertEqual(result, expected)
+
+    def test_get_single_movie_from_search_result_value_error(self):
+        setup_search_result = {}
+        setup_film = {"title": "Insomnia", "year": 2002}
+        with self.assertRaises(ValueError):
+            tmdb_api_based.get_single_movie_from_search_result(setup_search_result, setup_film)
 
 
 

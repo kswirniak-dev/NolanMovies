@@ -26,6 +26,11 @@ def get_search_result_by_title_and_year(film):
 
 
 def get_single_movie_from_search_result(search_result, film):
+    if search_result is None:
+        raise TypeError
+    if search_result == {}:
+        raise ValueError
     for result in search_result["results"]:
         if result["original_title"] == film["title"] and result["release_date"][:4] == str(film["year"]):
             return result["id"]
+
