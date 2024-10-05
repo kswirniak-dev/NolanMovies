@@ -29,4 +29,3 @@ def get_single_movie_from_search_result(search_result, film):
     for result in search_result.json()["results"]:
         if result["original_title"] == film["title"] and result["release_date"][:4] == str(film["year"]):
             return result["id"]
-
