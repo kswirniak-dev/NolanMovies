@@ -28,23 +28,23 @@ class TestTmdbApiBased(unittest.TestCase):
     def test_find_all_nolan_movie_ids(self):
         pass
 
-    def test_get_single_movie_from_search_result_success(self):
+    def test_get_single_movie_id_from_search_result_success(self):
         expected = 77
-        result = tmdb_api_based.get_single_movie_from_search_result(self.search_result, self.film_memento)
+        result = tmdb_api_based.get_single_movie_id_from_search_result(self.search_result, self.film_memento)
 
         self.assertIsNotNone(result)
         self.assertEqual(result, expected)
 
-    def test_get_single_movie_from_search_result_fail(self):
+    def test_get_single_movie_id_from_search_result_fail(self):
         expected = None
-        result = tmdb_api_based.get_single_movie_from_search_result(self.search_result, self.film_insomnia)
+        result = tmdb_api_based.get_single_movie_id_from_search_result(self.search_result, self.film_insomnia)
 
         self.assertIsNone(result)
         self.assertEqual(result, expected)
 
-    def test_get_single_movie_from_search_result_value_error(self):
+    def test_get_single_movie_id_from_search_result_value_error(self):
         with self.assertRaises(ValueError):
-            tmdb_api_based.get_single_movie_from_search_result(self.empty_search_result, self.film_insomnia)
+            tmdb_api_based.get_single_movie_id_from_search_result(self.empty_search_result, self.film_insomnia)
 
     @patch('tmdb_api_based.requests.get')
     def test_get_search_result_by_title_and_year_success(self, mock_get):
