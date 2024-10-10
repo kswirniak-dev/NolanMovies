@@ -25,9 +25,6 @@ class TestTmdbApiBased(unittest.TestCase):
         self.film_insomnia = {"title": "Insomnia", "year": 2002}
         self.nolan_movies = movies
 
-    def test_find_all_nolan_movie_ids(self):
-        pass
-
     def test_get_single_movie_id_from_search_result_success(self):
         expected = 77
         result = tmdb_api_based.get_single_movie_id_from_search_result(self.search_result, self.film_memento)
@@ -142,6 +139,15 @@ class TestTmdbApiBased(unittest.TestCase):
         self.assertEqual(set(result), set(expected))
         self.assertEqual(mock_get_search_result.call_count, len(self.nolan_movies))
         self.assertEqual(mock_get_single_movie.call_count, len(self.nolan_movies))
+
+        def test_get_movie_by_id_success():
+            pass
+
+        def test_get_movie_by_id_assertion_error():
+            pass
+
+        def test_get_movie_by_id_value_error():
+            pass
 
 
 if __name__ == '__main__':
