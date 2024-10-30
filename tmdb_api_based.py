@@ -34,6 +34,3 @@ def get_single_movie_id_from_search_result(search_result, film):
         if result["original_title"] == film["title"] and result["release_date"][:4] == str(film["year"]):
             return result["id"]
 
-
-def get_movie_by_id(movie_id):
-    pass
