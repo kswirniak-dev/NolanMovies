@@ -1,6 +1,9 @@
 <html>
 <head></head>
 <body>
-<p>{{movie}}</p>
+<h2>{{ movie["original_title"] }}</h2>
+<img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{ movie['poster_path'] }}"/>
+<h3>{{ movie["tagline"] }}</h3>
+<p>{{ movie["overview"] }}</p>
 </body>
 </html>

@@ -15,7 +15,7 @@ headers = {
 @app.route("/movie/<movie_id>")
 def get_movie(movie_id):
     response = requests.get(url + movie_id, headers=headers)
-    return render_template("movie.html", movie=response.text)
+    return render_template("movie.html", movie=response.json())
 
 
 app.run(host="0.0.0.0", port=5001)
